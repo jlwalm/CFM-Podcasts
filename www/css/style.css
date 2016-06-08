@@ -1,2 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {margin:0px;padding:0px;}/**/
+
+.audio-controls{
+    
+  
+
+    
+}
+
+.toolbar {
+    padding-top : 10px;
+    padding-bottom : 10px;
+    width: 100%;
+    background-color : #313F59;
+    text-align : center;
+    border-bottom : 1px solid #d6d6d6;
+}
+
+
+.audio-button {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  padding: 10%;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  line-height: normal;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 17px;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  height: auto;
+  text-decoration: none;
+  padding: 4px 10px;
+  font-size: 17px;
+  line-height: 32px;
+  letter-spacing: 0;
+  color: #fff;
+  vertical-align: middle;
+  background-color: rgba(24,103,194,0.81);
+  border: 0px solid currentColor;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  
+    width:89%;
+    margin:5%;
+    margin-bottom:2%;
+    background-color:#313F59;
+    text-align: center;
+    vertical-align: middle;
+    color:#ffffff;
+    border-radius:10px;
+    float:left;
+    padding:7%;
+}
+.audio-button:hover {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.audio-button:active {
+  background-color: rgba(24,103,194,0.81);
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  opacity: 0.2;
+}
+.audio-button:focus {
+  outline: 0;
+}
+.audio-button:disabled,
+.button[disabled] {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+
+
+
+
+.podcast_info {text-align: center;
+padding: 5%;
+font-size:100% ;}
+
+
+.btn .large a{
+    
+    width:100%;
+    height:10%;
+    background-color: red;
+    color:red;
+    
+    
+}
+
+/*########Range controller css */
+
+
+.range {
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  line-height: normal;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  vertical-align: top;
+  outline: none;
+  line-height: 1;
+  -webkit-appearance: none;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: none;
+  height: 2px;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#ddd));
+  background-image: -webkit-linear-gradient(#ddd, #ddd);
+  background-image: -moz-linear-gradient(#ddd, #ddd);
+  background-image: -o-linear-gradient(#ddd, #ddd);
+  background-image: linear-gradient(#ddd, #ddd);
+  background-position: left center;
+  -webkit-background-size: 100% 2px;
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  height: 31px;
+  width: 90%;
+  margin: 2%;
+}
+.range::-moz-range-track {
+  position: relative;
+  border: none;
+  background-color: #ddd;
+  height: 2px;
+  border-radius: 30px;
+  box-shadow: none;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+.range::-webkit-slider-thumb {
+  cursor: pointer;
+  -webkit-appearance: none;
+  position: relative;
+  height: 29px;
+  width: 29px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+.range::-moz-range-thumb {
+  cursor: pointer;
+  position: relative;
+  height: 29px;
+  width: 29px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+.range::-webkit-slider-thumb:before {
+  position: absolute;
+  top: 13px;
+  right: 0px;
+  left: -1024px;
+  width: 1024px;
+  height: 2px;
+  background-color: rgba(24,103,194,0.81);
+  content: '';
+  margin: 0;
+  padding: 0;
+}
+.range:disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
 

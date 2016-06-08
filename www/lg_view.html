@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="themes/cfmp.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+     <link rel="stylesheet" href="css/changes.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
    <script type="text/javascript" charset="utf-8">
@@ -25,7 +26,7 @@
      
       var lg_notes_content = decodeURIComponent(localStorage.getItem("notes_content"));
      // alert(lg_notes_content);
-     $('#notesbody').html(lg_notes_content);
+     $('#notesbody').html(decodeURIComponent(lg_notes_content));
              
      
      }
@@ -40,10 +41,11 @@
    
           </script>
         </head>
-      <body>
+      <body style="background-color:#ffffff;">
     
       
       
+    	<div data-role="header" style="overflow:hidden;" data-position="fixed">
       <div class="toolbar">
         <h2><img src='CarnforthLogo.jpg' /></h2>
        
@@ -52,8 +54,10 @@
        
         
     </div>
+
+</div><!-- /header -->
     
-    <div id="notesbody">
+    <div style="background-color:#ffffff;" id="notesbody">
         
        
         

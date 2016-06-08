@@ -8,22 +8,46 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="css/changes.css" />
     <script src="js.js"></script
 </head>
 <body>
 
+
+
+
+
 	<div data-role="page" data-theme="a">
-		<div data-role="header" data-position="inline">
-			<h1 id="header">CFM Podcasts</h1>
-         <a href="#" onclick="LoadNotes()">lg notes</a>
-		</div>
+		<div data-role="header" style="overflow:hidden;" data-position="fixed">
+      <div style="text-align:center;" class="toolbar">
+        <h2><img src='CarnforthLogo.jpg' /></h2>
+       
+       
+       
+       
+        
+    </div>
+<div data-role="navbar" data-iconpos="right">
+<ul>
+<li><button onclick="LoadSermon()" class="ui-btn ui-icon-audio ui-btn-icon-left">Podcasts</button></li>
+<li><button onclick="LoadNotes()" class="ui-btn ui-icon-info ui-btn-icon-left" data-theme="b">LG Notes</button></li>
+
+</ul>
+</div><!-- /navbar -->
+</div><!-- /header -->
 		<div style="height:100%;" data-role="content" data-theme="a">
 
-   <p text-align:center" id="status">Loading Podcasts... </p>
-<ul id="feed" data-role="listview">
+   
+   <form class="ui-filterable">
+  <input id="myFilter" data-type="search">
+</form>
+<ul id="feed" data-role="listview" data-filter="true" data-input="#myFilter">
    
 </ul>
-		</div>
+
+<p text-align:center" id="status">Loading Podcasts... </p>
+    
+</div>
 	</div>
 </body>
 </html>

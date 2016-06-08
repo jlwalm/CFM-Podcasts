@@ -39,12 +39,14 @@
 
         
         
-        var title = el.find("title").text();
+        var title = encodeURIComponent(el.find("title").text());
         var link = encodeURIComponent(el.find('enclosure').attr('url'));
-        
+       //remove apostrophies from the title
+       title = title.replace(/'/g, '');
+       title = title.replace(/&/g, 'and');
         
        //  var li = "<li onclick=\"GoToPlayer("+link+"\,"+title+")\">"+title+"<\/li>";
-            var li = '<li onclick="GoToPlayer(\''+ link+ '\', \''+ title+ '\')" >' + title +'</li>';
+            var li = '<li onclick="GoToPlayer(\''+ link+ '\', \''+ title+ '\')" >' + decodeURIComponent(title) +'</li>';
 
        $("#feed").append(li);
         
@@ -85,7 +87,7 @@
 
         
         
-        var title = el.find("title").first().text();
+        var title = encodeURIComponent(el.find("title").first().text());
         var content = encodeURIComponent(el.find("encoded").text());
         var link = encodeURIComponent(el.find('enclosure').attr('url'));
         
@@ -93,7 +95,7 @@
         
         
       
-            var li = '<li onclick="GoToNotes(\''+ title+ '\', \''+ content+ '\')" >' + title +'</li>';
+            var li = '<li onclick="GoToNotes(\''+ title+ '\', \''+ content+ '\')" >' + decodeURIComponent(title) +'</li>';
 
        $("#feed").append(li);
         
