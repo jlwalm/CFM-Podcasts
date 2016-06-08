@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+    <html>
+      <head>
+      <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/cikonss.css">
+       <meta charset="utf-8"> 
+        <script type="text/javascript" src="components/loader.js"></script>
+        <script type="text/javascript" charset="utf-8">
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+        
+        
+        
+        function onDeviceReady() {
+            //window.alert("Loading PhoneGap is completed");
+     
+     
+     
+             
+     
+     }
+     
+     var media = null;
+        var mediaTimer = null;
+        var medialength = null;
+        var playing=false;
+        var mp3;
+      //  var seekBar = document.getElementById;
+
+
+// if (!localStorage.getItem("url_to_play").substr(0,7) == 'http://')document.getElementById("share").children().attr("disabled","disabled");
+
+//######### PLAY Audio Function ###################
+
+        function playAudio() {
+            
+            if (playing == false){
+
+            playing = true;
+            
+            document.getElementById('playbutton').innerHTML = "Pause";
+           
+            //get url passed from previous screen.
+            var mp3 = localStorage.getItem("url_to_play");
+            var src = mp3;
+
+            if(media === null){media = new Media (src , onSuccess, onError);}
+
+            //Play the audio. You can set number of the replaying time here.
+            media.play({numberOfLoops:"infinite"});
+
+            if (mediaTimer == null) {
+
+                mediaTimer = setInterval(function() {
+                medialength = media.getDuration();  //added.
+                
+                
+                //set duration element.
+                var minutes = Math.floor(medialength / 60);
+              
+              var seconds = Math.round(medialength - minutes * 60);
+                
+                
+                 document.getElementById('duration').innerHTML = minutes + ":" + seconds ;
+                    // Return a current playback position
+                    media.getCurrentPosition(
+
+                        //A Callback function if it's success
+                        function(position) {
+                            if (position > -1) {
+                               //calculate percentage.
+                               var percent = (position / medialength) * 100;
+                              //print audio time.
+                              setAudioTime((position));
+                               //print audio percentage.
+                               setAudioPercent((percent));
+                                             
+                                        //If the playback stops at "-0.001" position, replay the audio.
+                                        if(position == -0.001){
+
+                                            media.play({numberOfLoops:"infinite"});
+            
+                                        }
+                            }
+                        },
+                        //A callback function in case of failure
+                        function(e) {
+
+                            console.log("Error getting pos=" + e);
+                            setAudioPosition("Error: " + e);
+
+                        }
+                    );
+                }, 1000);
+            }
+            
+            
+            }
+            
+            
+            
+            else
+            
+            {
+                if (media) {
+                media.pause();
+            }
+                document.getElementById('playbutton').innerHTML = "Play";
+                playing = false;
+                
+            }
+        }
+        
+   
+        
+        
+//######### Audio Seek Function ###################
+function AudioSeek(seek) {
+  // Calculate the new time
+  var time = medialength * ( document.getElementById("range").value / 100);
+
+  // Update the media time in miliseconds.
+  media.seekTo(time * 1000);
+  
+};
+        
+        
+
+//######### Pause Audio Function ###################
+
+        function pauseAudio() {
+
+            if (media) {
+                media.pause();
+            }
+        }
+        
+
+
+
+//######### Stop Audio Function ###################
+        function stopAudio() {
+
+            if (media) {
+                media.stop();
+            }
+
+            clearInterval(mediaTimer);
+            mediaTimer = null;
+        }
+        
+        
+//######### End Stop Audio Function ###################
+        
+
+          //A success callback function displaying a success message.
+          function onSuccess() {
+              console.log("playAudio():Audio Success");
+          }
+
+          //A callback function in case of failure
+          function onError(error) {
+              alert('code: '    + error.code    + '\n' + 
+                    'message: ' + error.message + '\n');
+          }
+
+
+
+//######### Display audio time Function ###################
+
+          
+          function setAudioTime(position) {
+              var num = position
+              var minutes = Math.floor(num / 60);
+              
+              var seconds = Math.round(position - minutes * 60);
+              
+              document.getElementById('audio_position').innerHTML = minutes + ":" + seconds ;
+          }
+          
+          
+          
+          
+//######### Display Audio Percentage complete ###################
+          function setAudioPercent(percent) {
+              document.getElementById('audio_percent').innerHTML = percent;
+              document.getElementById("range").value = percent;
+             // seekBar = percent;
+          }
+     
+
+
+
+//######### Share Podcast function ###################
+     
+  
+  
+
+
+
+//######### End of functions ###################
+    
+    
+    
+    
+   
+          </script>
+        </head>
+      <body>
+    
+      
+      
+      <div class="toolbar">
+        <h2><img src='CarnforthLogo.jpg' /></h2>
+       
+       
+       
+       
+        
+    </div>
+    
+    <div class="podcast_info">
+        
+        <script>
+          var info = localStorage.getItem("message_name").split("-");
+          document.write("<H2>" + info[2] + "</H2>");
+          document.write("<H3>" + info[1] + "</H3>");
+         
+         
+        </script>
+        
+        
+    </div>
+    
+      <input type="range" id="range" class="range" Min="0" Max="100" onchange="AudioSeek()" Value="1">
+          <p id="audio_position" style="float:left;"></p><p style="display:none;float:left;" id="audio_percent"></p>
+          <p style="float:right;" id="duration"></p>
+          <br/>
+          <br />
+          
+   <button class="audio-button" id="playbutton" onclick="playAudio();">Play</button>
+    <!--<button class="audio-button" onclick="pauseAudio();">Pause</button>
+    <button class="audio-button" onclick="stopAudio();">Stop</button>
+     <button class="audio-button" id="downloadbtn" onclick="mp3Download();"><span class="icon icon-small icon-square icon-download"></span></button>-->
+    
+    
+ 
+    
+    
+       
+
+  
+      </body>
+    </html>  
