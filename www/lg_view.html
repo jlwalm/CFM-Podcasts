@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+    <html>
+      <head>
+      
+
+<meta http-equiv="content-security-policy": "script-src 'self' https://debug.monaca.mobi:8080/ http://www.cfmc.org.uk 'unsafe-inline'; object-src 'self'">
+<link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/cikonss.css">
+       <meta charset="utf-8"> 
+        <script type="text/javascript" src="components/loader.js"></script>
+     
+    <link rel="stylesheet" href="themes/cfmp.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+   <script type="text/javascript" charset="utf-8">
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+        
+        
+        
+        function onDeviceReady() {
+           
+     
+      var lg_notes_content = decodeURIComponent(localStorage.getItem("notes_content"));
+     // alert(lg_notes_content);
+     $('#notesbody').html(lg_notes_content);
+             
+     
+     }
+     
+    
+
+
+
+
+    
+    
+   
+          </script>
+        </head>
+      <body>
+    
+      
+      
+      <div class="toolbar">
+        <h2><img src='CarnforthLogo.jpg' /></h2>
+       
+       
+       
+       
+        
+    </div>
+    
+    <div id="notesbody">
+        
+       
+        
+        
+    </div>
+    
+
+
+  
+      </body>
+    </html>  

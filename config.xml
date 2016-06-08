@@ -8,6 +8,7 @@
   <allow-navigation href="*" />
   <allow-intent href="itms:*" />
   <allow-intent href="itms-apps:*" />
+<allow-navigation href="http://*/*" />
 
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="Orientation" value="default"/>
@@ -43,4 +44,5 @@
   <preference name="monaca:AndroidIsPackageNameSeparate" value="false"/>
   <preference name="monaca:targetFamilyiPhone" value="1"/>
   <preference name="monaca:targetFamilyiPad" value="1"/>
+  
 </widget>

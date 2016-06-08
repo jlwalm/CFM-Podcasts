@@ -1,7 +1,10 @@
 <!DOCTYPE HTML>
     <html>
       <head>
-      <link rel="stylesheet" href="css/style.css">
+      
+
+<meta http-equiv="content-security-policy": "script-src 'self' https://debug.monaca.mobi:8080/ http://www.cfmc.org.uk 'unsafe-inline'; object-src 'self'">
+<link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/cikonss.css">
        <meta charset="utf-8"> 
         <script type="text/javascript" src="components/loader.js"></script>
@@ -28,7 +31,7 @@
       //  var seekBar = document.getElementById;
 
 
-// if (!localStorage.getItem("url_to_play").substr(0,7) == 'http://')document.getElementById("share").children().attr("disabled","disabled");
+
 
 //######### PLAY Audio Function ###################
 
@@ -41,7 +44,7 @@
             document.getElementById('playbutton').innerHTML = "Pause";
            
             //get url passed from previous screen.
-            var mp3 = localStorage.getItem("url_to_play");
+            var mp3 = decodeURIComponent(localStorage.getItem("url_to_play"));
             var src = mp3;
 
             if(media === null){media = new Media (src , onSuccess, onError);}
